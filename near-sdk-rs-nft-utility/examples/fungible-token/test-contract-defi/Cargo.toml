@@ -1,0 +1,13 @@
+[package]
+name = "defi"
+version = "0.0.1"
+authors = ["Near Inc <hello@nearprotocol.com>"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+near-sdk = { path = "../../../near-sdk", features = ["abi"] }
+near-contract-standards = { path = "../../../near-contract-standards", features = ["abi"] }
+schemars = "0.8"
