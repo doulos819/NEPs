@@ -1,9 +1,8 @@
 use super::resolver::NonFungibleTokenResolver;
-use crate::non_fungible_token::approval;
 use crate::non_fungible_token::core::receiver::ext_nft_receiver;
 use crate::non_fungible_token::core::resolver::ext_nft_resolver;
 use crate::non_fungible_token::core::NonFungibleTokenCore;
-use crate::non_fungible_token::events::{NftMint, NftTransfer, NftBurn};
+use crate::non_fungible_token::events::{NftMint, NftTransfer};
 use crate::non_fungible_token::metadata::TokenMetadata;
 use crate::non_fungible_token::token::{Token, TokenId};
 use crate::non_fungible_token::utils::{refund_approved_account_ids, refund_deposit_to_account};

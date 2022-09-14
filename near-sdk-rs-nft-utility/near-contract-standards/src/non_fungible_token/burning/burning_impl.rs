@@ -2,7 +2,7 @@
 use crate::non_fungible_token::burning::NonFungibleTokenBurning;
 use crate::non_fungible_token::token::{Token, TokenId};
 use crate::non_fungible_token::NonFungibleToken;
-use near_sdk::{env, AccountId};
+use near_sdk::{env, require, AccountId};
 
 impl NonFungibleTokenBurning for NonFungibleToken {
     fn burn(
@@ -27,6 +27,9 @@ impl NonFungibleTokenBurning for NonFungibleToken {
         let owner_id = self.owner_by_id.get(&token_id).unwrap_or_else(|| {
             env::panic_str("token_id not found");
         });
+
+        require!(env::predecessor_account_id() == owner_id, "Predecessor must be token owner.");
+
         if token_owner_id != owner_id {
             env::panic_str("token_owner_id is not the token owner");
         }
